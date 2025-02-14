@@ -1,6 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+    font-family: "Poppins", serif;
+
+    /* Declaring variables */
+    --header-tab: 8vh;
+    --footer: 20px;
+    --color-main-var: rgb(0, 0, 233);
+    --color-text: #5f5f5f;
+
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: .8em 1.5em;
+    height: var(--header-tab);
+}
+
+.site-name{
+    font-family: "Exo 2", serif;
+    font-weight: 900;
+    font-size: 2.4rem;
+    color: var(--color-main-var);
+    letter-spacing: 4px;
+}
+
+.nav ul{
+    list-style: none;
+    display: flex;
+    gap: 1em;
+}
+
+.nav ul li{
+    letter-spacing: 2px;
+    cursor: pointer;
+    color: var(--color-text);
+
+}
+
+.nav ul li:hover{
+    color: var(--color-main-var);
+    transition: .2s ease-in-out;
+    font-weight: bold;
+}
+
+.container{
+    height: calc(95vh - calc(var(--header-tab) + var(--footer)));
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin: 0 2.5em;
+}
+
+.title{
+    align-self: center;
+    color: var(--color-text);
+}
+
+h1{
+    color: var(--color-main-var);
+    margin-bottom: .5em;
+}
+
+.books{
+    text-align: center;
+}
+
+#add-book{
+    background-color: rgb(255, 145, 0);
+    padding: 5px 12px;
+    border: none;
+    border-radius: 15px;
+    color: whitesmoke;
+    font-size: 1rem;
+    margin-top: 12px;
 }
