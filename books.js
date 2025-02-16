@@ -10,6 +10,31 @@ document.addEventListener('DOMContentLoaded', ()=>{
     const status = document.querySelector('#read');
     const newBook = document.querySelector('#new-book');
 
+
+    //main things
+
+    const myLibrary = [];
+
+    function Book(title, author, pages,status){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.status = status;
+    }
+
+    function addBookToLibrary(){
+        const bookTitle = title.value;
+        const bookAuthor = author.value;
+        const bookPage = pages.value;
+        const bookStatus = status.value;
+
+        const book = new Book(bookTitle, bookAuthor, bookPage,bookStatus);
+
+        myLibrary.push(book);
+        displayBook();
+        dialog.close();
+    }
+
     addBook.addEventListener('click', () =>{
         dialog.show();
     });
