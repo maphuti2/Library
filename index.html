@@ -32,6 +32,7 @@
             </div>
 
             <dialog open>
+                <h2>ADD NEW BOOK</h2>
                 <form class="book-form">
                     <label for="title">Book Title</label>
                     <input type="text" name="title" id="title" required >
@@ -41,8 +42,10 @@
                     <input type="number" name="pages" id="pages">
                     <label for="read">Read Status</label>
                     <input type="checkbox" name="read" id="read">
-                    <input type="submit" value="Add Book" id="new-book">
-                    <input type="button" value="Close" id="close">
+                    <div class="form-btn">
+                        <input type="submit" value="Add Book" id="new-book" >
+                        <input type="button" value="Close" id="close" >
+                    </div>
                 </form>
             </dialog>
             <div class="book-cover">

@@ -183,3 +183,55 @@ span{
     background-color: var(--color-main-var);
     transition: 1s ease-in-out;
 }
+
+dialog{
+    padding: 12px;
+    margin: auto;
+    border: 2px solid var(--color-main-var);
+    border-radius: 10px;
+    color: #5f5f5f;
+}
+
+form{
+    display: grid;
+    width: 500px;
+}
+
+form label{
+    text-align: left;
+    color: var(--color-text);
+    margin-left: 16px;
+}
+
+form input{
+    padding: 5px 8px;
+    border-radius: 15px;
+    background-color: #f3f3f3;
+    border: none;
+    margin-bottom: 12px;
+}
+
+form input:focus{
+    border: 1px solid #1378eb;
+    outline: none;
+}
+
+form .form-btn{
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+}
+
+form #new-book{
+    background-color: green;
+    color: #f3f3f3;
+    letter-spacing: 1px;
+    padding: 6px 16px;
+}
+
+form #close{
+    background-color: red;
+    color: #f3f3f3;
+    letter-spacing: 1px;
+    padding: 6px 16px;
+}
