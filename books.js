@@ -75,6 +75,18 @@ document.addEventListener('DOMContentLoaded', ()=>{
         });
     }
 
+    function changeStatus(e){
+        const index = e.target.dataset.index;
+        myLibrary[index].status = myLibrary[index].status === 'Read' ? 'Not Read' : 'Read';
+        displayBook();
+    }
+
+    function removeBook(e){
+        const i = e.target.dataset.i;
+        myLibrary.splice(i,1);
+        displayBook();
+    }
+
     addBook.addEventListener('click', () =>{
         dialog.show();
     });
