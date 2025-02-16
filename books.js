@@ -1,26 +1,33 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Declaring variables to use during library development
+document.addEventListener('DOMContentLoaded', ()=>{
     const addBook = document.querySelector('#add-book');
-    const readButtons = document.querySelectorAll('.status');
-    const deleteButtons = document.querySelectorAll('.delete');
-    let noBookMsg = document.querySelector('.book-avail')
+    const dialog = document.querySelector('dialog');
+    const closeBtn = document.querySelector('#close');
+    const readStatus = document.querySelectorAll('.status');
+    const deleteBtn = document.querySelectorAll('.delete');
+    const title = document.querySelector('#title');
+    const author = document.querySelector('#author');
+    const pages = document.querySelector('#pages');
+    const status = document.querySelector('#read');
+    const newBook = document.querySelector('#new-book');
 
-    // Adding event listener to the 'add-book' button
-    addBook.addEventListener('click', () => {
-        alert('Add Book button clicked');
+    addBook.addEventListener('click', () =>{
+        dialog.show();
     });
 
-    // Adding event listeners to each 'status' button
-    readButtons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-            alert('Read button clicked');
+    closeBtn.addEventListener('click', () =>{
+        dialog.close();
+    });
+
+    readStatus.forEach(read => {
+        read.addEventListener('click', () =>{
+            alert('read read...');
         });
     });
-
-    // Adding event listeners to each 'delete' button
-    deleteButtons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-            alert('Delete button clicked');
+    
+    deleteBtn.forEach(del => {
+        del.addEventListener('click', () =>{
+            alert('Delete delete...');
         });
     });
+    
 });
