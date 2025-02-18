@@ -1,61 +1,55 @@
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', () => {
     const addBook = document.querySelector('#add-book');
     const dialog = document.querySelector('dialog');
     const closeBtn = document.querySelector('#close');
-    const readStatus = document.querySelectorAll('.status');
-    const deleteBtn = document.querySelectorAll('.delete');
+    const newBook = document.querySelector('#new-book');
+    const bookCover = document.querySelector('.book-cover');
     const title = document.querySelector('#title');
     const author = document.querySelector('#author');
     const pages = document.querySelector('#pages');
     const status = document.querySelector('#read');
-    const newBook = document.querySelector('#new-book');
-    const bookCover = document.querySelector('.book-cover')
-
-
-    //main things
-
     const myLibrary = [];
 
-    function Book(title, author, pages,status){
+    function Book(title, author, pages, status) {
         this.title = title;
         this.author = author;
         this.pages = pages;
         this.status = status;
     }
 
-    function addBookToLibrary(){
+    function addBookToLibrary() {
         const bookTitle = title.value;
         const bookAuthor = author.value;
         const bookPage = pages.value;
         const bookStatus = status.checked ? 'Read' : 'Not Read';
 
-        const book = new Book(bookTitle, bookAuthor, bookPage,bookStatus);
-
+        const book = new Book(bookTitle, bookAuthor, bookPage, bookStatus);
         myLibrary.push(book);
-        displayBook();
+        displayBooks();
         dialog.close();
+        console.log('AddBookToLibrary func');
+        alert(`okay Add New Book is entered ${bookTitle}, ${bookAuthor}, ${bookPage}, ${bookStatus}`);
     }
 
-    // Functions to do the work
-
-    function checkBookAvailability(){
-        if (bookCover.children.length === 0){
+    function checkBookAvailability() {
+        if (bookCover.children.length === 0) {
             document.querySelector('.book-avail').style.display = 'block';
-        }
-        else{
+        } else {
             document.querySelector('.book-avail').style.display = 'none';
         }
     }
 
-    function displayBook(){
-        myLibrary.forEach((book, index) =>{
+    function displayBooks() {
+        bookCover.innerHTML = ''; // Clear previous books
+
+        myLibrary.forEach((book, index) => {
             const bookDiv = document.createElement('div');
             bookDiv.classList.add('book');
             bookDiv.innerHTML = `
             <div class="book-design">
                 <p class="book-title">${book.title}</p>
                 <p class="book-author"><span>&bullet;</span>${book.author}</p>
-                <p class="book-pages">${book.pages}</p>
+                <p class="book-pages">${book.pages} pages</p>
                 <p class="book-read">${book.status}</p>
                 <div class="book-btn">
                     <button class="status" data-index="${index}">${book.status}</button>
@@ -66,35 +60,43 @@ document.addEventListener('DOMContentLoaded', ()=>{
             bookCover.appendChild(bookDiv);
         });
 
-        readStatus.forEach((btn) => {
+        document.querySelectorAll('.status').forEach((btn) => {
             btn.addEventListener('click', changeStatus);
         });
 
-        deleteBtn.forEach((del) =>{
+        document.querySelectorAll('.delete').forEach((del) => {
             del.addEventListener('click', removeBook);
         });
+
+        checkBookAvailability();
+        console.log(`Display book title: ${this.title}`)
     }
 
-    function changeStatus(e){
+    function changeStatus(e) {
         const index = e.target.dataset.index;
         myLibrary[index].status = myLibrary[index].status === 'Read' ? 'Not Read' : 'Read';
-        displayBook();
+        displayBooks();
     }
 
-    function removeBook(e){
-        const i = e.target.dataset.i;
-        myLibrary.splice(i,1);
-        displayBook();
+    function removeBook(e) {
+        const index = e.target.dataset.index;
+        myLibrary.splice(index, 1);
+        displayBooks();
     }
 
-    addBook.addEventListener('click', () =>{
-        dialog.show();
+    newBook.addEventListener('click', (e) => {
+        e.preventDefault();
+        addBookToLibrary();
+        alert('New Book Button Clicked');
+    });
+
+    addBook.addEventListener('click', () => {
+        dialog.showModal();
+    });
+
+    closeBtn.addEventListener('click', () => {
+        dialog.close();
     });
 
     checkBookAvailability();
-
-    closeBtn.addEventListener('click', () =>{
-        dialog.close();
-    });
-    
 });
