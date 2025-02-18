@@ -27,8 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
         myLibrary.push(book);
         displayBooks();
         dialog.close();
-        console.log('AddBookToLibrary func');
-        alert(`okay Add New Book is entered ${bookTitle}, ${bookAuthor}, ${bookPage}, ${bookStatus}`);
     }
 
     function checkBookAvailability() {
@@ -40,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function displayBooks() {
-        bookCover.innerHTML = ''; // Clear previous books
+        bookCover.innerHTML = ''; 
 
         myLibrary.forEach((book, index) => {
             const bookDiv = document.createElement('div');
@@ -69,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         checkBookAvailability();
-        console.log(`Display book title: ${this.title}`)
     }
 
     function changeStatus(e) {
@@ -85,9 +82,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     newBook.addEventListener('click', (e) => {
-        e.preventDefault();
+        e.preventDefault(); 
+        const pagesInput = document.querySelector('#pages');
+    if (pagesInput.value < 10) {
+        document.querySelector('#pg').textContent = 'Pages must be more than 9';
+        document.querySelector('#pg').style.color = 'red';
+       
+    } else {
         addBookToLibrary();
-        alert('New Book Button Clicked');
+        document.querySelector('#pg').textContent = 'Pages';
+        document.querySelector('#pg').style.color = 'gray';
+    }
     });
 
     addBook.addEventListener('click', () => {
