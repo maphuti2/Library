@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         addBookToLibrary();
         document.querySelector('#pg').textContent = 'Pages';
         document.querySelector('#pg').style.color = 'gray';
+        document.querySelector('.book-form').reset();
     }
     });
 
