@@ -4,7 +4,7 @@ An interactive e-book library application designed to manage a personal book col
 
 ## Demo
 
-[View my project live here] (https://maphuti2.github.io/Library/)
+View my project live [here](https://maphuti2.github.io/Library/).
 
 ## Features
 
