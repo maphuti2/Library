@@ -2,6 +2,10 @@
 
 An interactive e-book library application designed to manage a personal book collection. Users can add books, edit their read statuses, or remove them from the list—all within a clean and user-friendly interface.
 
+## Demo
+
+[View my project live here] (https://maphuti2.github.io/Library/)
+
 ## Features
 
 - **Book Management**:
@@ -54,5 +58,5 @@ An interactive e-book library application designed to manage a personal book col
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/library-app.git
+   git clone https://github.com/maphuti2/library-app.git
    ```
